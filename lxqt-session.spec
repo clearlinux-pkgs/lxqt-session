@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x42C9C8D3AF5EA5E3 (agaida@siduction.org)
 #
 Name     : lxqt-session
-Version  : 0.14.0
-Release  : 1
-URL      : https://downloads.lxqt.org/downloads/lxqt-session/0.14.0/lxqt-session-0.14.0.tar.xz
-Source0  : https://downloads.lxqt.org/downloads/lxqt-session/0.14.0/lxqt-session-0.14.0.tar.xz
-Source99 : https://downloads.lxqt.org/downloads/lxqt-session/0.14.0/lxqt-session-0.14.0.tar.xz.asc
+Version  : 0.14.1
+Release  : 2
+URL      : https://downloads.lxqt.org/downloads/lxqt-session/0.14.1/lxqt-session-0.14.1.tar.xz
+Source0  : https://downloads.lxqt.org/downloads/lxqt-session/0.14.1/lxqt-session-0.14.1.tar.xz
+Source99 : https://downloads.lxqt.org/downloads/lxqt-session/0.14.1/lxqt-session-0.14.1.tar.xz.asc
 Summary  : The LXQt session manager
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -38,7 +38,6 @@ Summary: bin components for the lxqt-session package.
 Group: Binaries
 Requires: lxqt-session-data = %{version}-%{release}
 Requires: lxqt-session-license = %{version}-%{release}
-Requires: lxqt-session-man = %{version}-%{release}
 
 %description bin
 bin components for the lxqt-session package.
@@ -69,14 +68,14 @@ man components for the lxqt-session package.
 
 
 %prep
-%setup -q -n lxqt-session-0.14.0
+%setup -q -n lxqt-session-0.14.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549550905
+export SOURCE_DATE_EPOCH=1551237165
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -84,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549550905
+export SOURCE_DATE_EPOCH=1551237165
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-session
 cp LICENSE %{buildroot}/usr/share/package-licenses/lxqt-session/LICENSE
