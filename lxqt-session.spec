@@ -6,7 +6,7 @@
 #
 Name     : lxqt-session
 Version  : 0.14.1
-Release  : 2
+Release  : 3
 URL      : https://downloads.lxqt.org/downloads/lxqt-session/0.14.1/lxqt-session-0.14.1.tar.xz
 Source0  : https://downloads.lxqt.org/downloads/lxqt-session/0.14.1/lxqt-session-0.14.1.tar.xz
 Source99 : https://downloads.lxqt.org/downloads/lxqt-session/0.14.1/lxqt-session-0.14.1.tar.xz.asc
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551237165
+export SOURCE_DATE_EPOCH=1551243930
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1551237165
+export SOURCE_DATE_EPOCH=1551243930
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-session
 cp LICENSE %{buildroot}/usr/share/package-licenses/lxqt-session/LICENSE
