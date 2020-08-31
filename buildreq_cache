@@ -1,5 +1,4 @@
-0.14.1
-liblxqt-dev
+0.15.0
 lxqt-build-tools
 pkgconfig(libudev)
 systemd-dev
