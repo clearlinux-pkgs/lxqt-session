@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : lxqt-session
-Version  : 0.16.0
-Release  : 8
-URL      : https://github.com/lxqt/lxqt-session/releases/download/0.16.0/lxqt-session-0.16.0.tar.xz
-Source0  : https://github.com/lxqt/lxqt-session/releases/download/0.16.0/lxqt-session-0.16.0.tar.xz
-Source1  : https://github.com/lxqt/lxqt-session/releases/download/0.16.0/lxqt-session-0.16.0.tar.xz.asc
+Version  : 0.17.0
+Release  : 9
+URL      : https://github.com/lxqt/lxqt-session/releases/download/0.17.0/lxqt-session-0.17.0.tar.xz
+Source0  : https://github.com/lxqt/lxqt-session/releases/download/0.17.0/lxqt-session-0.17.0.tar.xz
+Source1  : https://github.com/lxqt/lxqt-session/releases/download/0.17.0/lxqt-session-0.17.0.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -21,9 +21,10 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
-BuildRequires : liblxqt-data
 BuildRequires : liblxqt-dev
 BuildRequires : lxqt-build-tools
+BuildRequires : pkg-config
+BuildRequires : pkgconfig(libprocps)
 BuildRequires : pkgconfig(libudev)
 BuildRequires : qtbase-dev
 BuildRequires : qttools-dev
@@ -72,15 +73,15 @@ man components for the lxqt-session package.
 
 
 %prep
-%setup -q -n lxqt-session-0.16.0
-cd %{_builddir}/lxqt-session-0.16.0
+%setup -q -n lxqt-session-0.17.0
+cd %{_builddir}/lxqt-session-0.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604543931
+export SOURCE_DATE_EPOCH=1618512713
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -93,10 +94,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604543931
+export SOURCE_DATE_EPOCH=1618512713
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-session
-cp %{_builddir}/lxqt-session-0.16.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-session/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+cp %{_builddir}/lxqt-session-0.17.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-session/7fab4cd4eb7f499d60fe183607f046484acd6e2d
 pushd clr-build
 %make_install
 popd
@@ -127,6 +128,7 @@ popd
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_ar.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_arn.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_ast.qm
+/usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_bg.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_ca.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_cs.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_cy.qm
@@ -152,11 +154,13 @@ popd
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_lt.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_nb_NO.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_nl.qm
+/usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_oc.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_pl.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_pt.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_ru.qm
+/usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_si.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_sl.qm
 /usr/share/lxqt/translations/lxqt-config-session/lxqt-config-session_sr@latin.qm
@@ -169,6 +173,7 @@ popd
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_ar.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_arn.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_ast.qm
+/usr/share/lxqt/translations/lxqt-leave/lxqt-leave_bg.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_ca.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_cs.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_cy.qm
@@ -192,8 +197,8 @@ popd
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_pl.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_pt.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_pt_BR.qm
-/usr/share/lxqt/translations/lxqt-leave/lxqt-leave_pt_PT.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_ru.qm
+/usr/share/lxqt/translations/lxqt-leave/lxqt-leave_si.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_sl.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_tr.qm
 /usr/share/lxqt/translations/lxqt-leave/lxqt-leave_uk.qm
@@ -202,6 +207,7 @@ popd
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_ar.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_arn.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_ast.qm
+/usr/share/lxqt/translations/lxqt-session/lxqt-session_bg.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_ca.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_cs.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_cy.qm
@@ -233,6 +239,7 @@ popd
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_ro_RO.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_ru.qm
+/usr/share/lxqt/translations/lxqt-session/lxqt-session_si.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_sk_SK.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_sl.qm
 /usr/share/lxqt/translations/lxqt-session/lxqt-session_sr@latin.qm
