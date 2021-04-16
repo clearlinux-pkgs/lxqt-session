@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : lxqt-session
-Version  : 0.17.0
-Release  : 9
-URL      : https://github.com/lxqt/lxqt-session/releases/download/0.17.0/lxqt-session-0.17.0.tar.xz
-Source0  : https://github.com/lxqt/lxqt-session/releases/download/0.17.0/lxqt-session-0.17.0.tar.xz
-Source1  : https://github.com/lxqt/lxqt-session/releases/download/0.17.0/lxqt-session-0.17.0.tar.xz.asc
+Version  : 0.17.1
+Release  : 10
+URL      : https://github.com/lxqt/lxqt-session/releases/download/0.17.1/lxqt-session-0.17.1.tar.xz
+Source0  : https://github.com/lxqt/lxqt-session/releases/download/0.17.1/lxqt-session-0.17.1.tar.xz
+Source1  : https://github.com/lxqt/lxqt-session/releases/download/0.17.1/lxqt-session-0.17.1.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -73,15 +73,15 @@ man components for the lxqt-session package.
 
 
 %prep
-%setup -q -n lxqt-session-0.17.0
-cd %{_builddir}/lxqt-session-0.17.0
+%setup -q -n lxqt-session-0.17.1
+cd %{_builddir}/lxqt-session-0.17.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618512713
+export SOURCE_DATE_EPOCH=1618594163
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,10 +94,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618512713
+export SOURCE_DATE_EPOCH=1618594163
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-session
-cp %{_builddir}/lxqt-session-0.17.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-session/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+cp %{_builddir}/lxqt-session-0.17.1/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-session/7fab4cd4eb7f499d60fe183607f046484acd6e2d
 pushd clr-build
 %make_install
 popd
