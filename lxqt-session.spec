@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : lxqt-session
-Version  : 1.1.0
-Release  : 14
-URL      : https://github.com/lxqt/lxqt-session/releases/download/1.1.0/lxqt-session-1.1.0.tar.xz
-Source0  : https://github.com/lxqt/lxqt-session/releases/download/1.1.0/lxqt-session-1.1.0.tar.xz
-Source1  : https://github.com/lxqt/lxqt-session/releases/download/1.1.0/lxqt-session-1.1.0.tar.xz.asc
+Version  : 1.1.1
+Release  : 15
+URL      : https://github.com/lxqt/lxqt-session/releases/download/1.1.1/lxqt-session-1.1.1.tar.xz
+Source0  : https://github.com/lxqt/lxqt-session/releases/download/1.1.1/lxqt-session-1.1.1.tar.xz
+Source1  : https://github.com/lxqt/lxqt-session/releases/download/1.1.1/lxqt-session-1.1.1.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -29,6 +29,7 @@ BuildRequires : pkgconfig(libudev)
 BuildRequires : qtbase-dev
 BuildRequires : qttools-dev
 BuildRequires : qtx11extras-dev
+BuildRequires : qtxdg-tools
 BuildRequires : systemd-dev
 BuildRequires : xdg-user-dirs
 
@@ -73,15 +74,15 @@ man components for the lxqt-session package.
 
 
 %prep
-%setup -q -n lxqt-session-1.1.0
-cd %{_builddir}/lxqt-session-1.1.0
+%setup -q -n lxqt-session-1.1.1
+cd %{_builddir}/lxqt-session-1.1.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1650312881
+export SOURCE_DATE_EPOCH=1652281171
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,10 +95,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1650312881
+export SOURCE_DATE_EPOCH=1652281171
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-session
-cp %{_builddir}/lxqt-session-1.1.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-session/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+cp %{_builddir}/lxqt-session-1.1.1/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-session/7fab4cd4eb7f499d60fe183607f046484acd6e2d
 pushd clr-build
 %make_install
 popd
